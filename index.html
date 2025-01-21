@@ -13,7 +13,7 @@
 <body>
   <h1>HTML Rocks!</h1>
   <p>
-    <button  onclick="helloWorld()">Prints Hello World to the Developer console</button>
+    <button onclick="helloWorld()">Prints Hello World to the Developer console</button>
   </p>
   <hr>
   <form id="addForm">
@@ -25,55 +25,22 @@
     <br>
     <button type="submit">Add Numbers</button>
   </form>
-
-  <label id="result">Result:</label>
-
+  <hr>
+  <ul>
+    <li>My Name is Ryan Wensmann</li>
+    <li>Expected Graduation: DEC 2025</li>
+    <li>No job doing web dev</li>
+    <li>No job or internship doing web dev before</li>
+  </ul>
+  <img src="img/Mewithfish.jpg" alt="Your Avatar" style="width:150px;height:150px;">
   <hr>
 
   <button id="jokeButton">Get a Random Joke</button>
   <p id="joke"></p>
 
-  <script type="module" script="js/main.js">
+  <script type="module">
     import {helloWorld, add, fetchRandomJoke} from './js/main.js';
-
-    // This shows how to assign a function to the window object
-    // so that it can be called from the browser console
-    window.helloWorld = helloWorld;
-
-    // This shows how to add an event listener to a button in the HTML
-    // and call a function when the button is clicked
-    const form = document.getElementById('addForm');
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      const num1 = parseFloat(document.getElementById('num1').value);
-      const num2 = parseFloat(document.getElementById('num2').value);
-      try{
-        const result = add(num1, num2);
-        document.getElementById('result').textContent = `Result: ${result}`;
-      }catch(e){
-        console.error(e);
-        document.getElementById('result').textContent = `Error: ${e.message}`;
-      }
-
-    });
-
-    // this shows how to add an event listener to a button in the HTML
-    // that calls a function that fetches a random joke from an API
-    // and displays it on the page
-    const jokebtn = document.getElementById('jokeButton');
-    const jokeresult = document.getElementById('joke');
-    jokebtn.addEventListener('click', async () => {
-      try {
-        jokeresult.textContent = 'Loading...';
-        const joke = await fetchRandomJoke();
-        document.getElementById('joke').textContent = joke;
-      } catch (e) {
-        console.error(e);
-        document.getElementById('joke').textContent = `Error: ${e.message}`;
-      }
-    });
   </script>
-
 </body>
 
 </html>
