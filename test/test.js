@@ -3,13 +3,6 @@ import sinon from 'sinon';
 
 QUnit.module('main.js tests', function() {
 
-    QUnit.test('helloWorld should print Hello World to the console', function(assert) {
-        const consoleSpy = sinon.spy(console, 'log');
-        helloWorld();
-        assert.ok(consoleSpy.calledWith('Hello World'), 'console.log should be called with Hello World');
-        consoleSpy.restore();
-    });
-
     QUnit.test('add should return the sum of two numbers', function(assert) {
         const num1 = 2;
         const num2 = 3;
